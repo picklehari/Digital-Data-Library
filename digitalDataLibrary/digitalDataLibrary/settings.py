@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,11 +51,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'digitalDataLibrary.urls'
+ 
+#TEMPLATE_DIRS = (
+#    os.path.join(os.path.dirname(__file__), 'template').replace('\\','/'),
+#)
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join('digitalDataLibrary', 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# Login redirects
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
